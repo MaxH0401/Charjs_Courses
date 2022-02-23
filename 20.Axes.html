@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Axes</title>
+</head>
+
+<body>
+	<canvas id="myChart" width="800" height="600"></canvas>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		var ctx = document.getElementById("myChart");
+		const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+		const data = {
+			labels: labels,
+			datasets: [
+				{
+					label: 'Default',
+					data: [11, 23, 63, 74, 82, 81],
+					borderColor: '#900',
+					pointStyle: 'rect',
+					hoverRadius: 15,
+					radius: 10,
+					rotation: 20,
+					fill: true,
+					backgroundColor: 'rgba(200,0,0,0.3)',
+
+
+				}]
+		};
+
+		const config = {
+			type: 'line',
+			data: data,
+			options: {
+				plugins: {
+					title: {
+						display: true,
+						text: 'MY CART'
+					},
+					subtitle: {
+						display: true,
+						text: 'subtitle'
+
+					},
+					tooltip: {
+						backgroundColor: 'rgba(150,0,0,0.8)',
+						borderWidth: '2',
+						borderColor: 'rgba(0,0,0,0.8)',
+					},
+				},
+				scales: {
+					x: {
+						grid: {
+							borderWidth: 4,
+							borderColor: 'red',
+							color: 'blue',
+							tickColor: 'pink',
+						},
+						ticks: {
+							color: 'pink',
+						},
+						title: {
+							display: true,
+							text: 'Month',
+							color:'red',
+						},
+					},
+					y: {
+						grid: {
+							borderWidth: 4,
+							borderColor: 'green',
+							color: 'transparent'
+						},
+						title: {
+							display: true,
+							text: 'mm',
+							color:'green',
+						},
+					}
+				}
+			},
+		};
+
+		const myChart = new Chart(ctx, config)
+        //直接使用config
+
+	</script>
+</body>
+
+</html>

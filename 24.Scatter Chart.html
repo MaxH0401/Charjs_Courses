@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Step Line Chart</title>
+	<title>Scatter Chart</title>
 </head>
 
 <body>
@@ -17,42 +17,37 @@
 		const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
 
 		const data = {
-			labels: labels,
 			datasets: [{
-				label: 'My First Dataset',
-				data: [65, 59, 80, 81, 56, 55],
-				fill: false,
-				borderColor: 'rgb(75, 192, 192)',
-				yAxisID: 'y',
-			}, {
-				label: 'Second Dataset',
-				data: [11, 23, 63, 74, 82, 81],
-				fill: false,
-				borderColor: 'blue',
-				yAxisID: 'y1',
-			}]
+				label: 'Scatter Dataset',
+				data: [{
+					x: -10,
+					y: 0
+				}, {
+					x: 0,
+					y: 10
+				}, {
+					x: 10,
+					y: 5
+				}, {
+					x: 0.5,
+					y: 5.5
+				}],
+				backgroundColor: 'rgb(255, 99, 132)'
+			}],
 		};
 
 		const config = {
-			type: 'line',
+			type: 'scatter',
 			data: data,
 			options: {
+				// maintainAspectRatio: false,
 				scales: {
-					y: {
+					x: {
 						type: 'linear',
-						display: true,
-						position: 'left',
-					},
-					y1: {
-						type: 'linear',
-						display: true,
-						position: 'right',
-						grid: {
-							drawOnChartArea: false,
-						},
-					},
+						position: 'bottom'
+					}
 				}
-			}
+			},
 		};
 
 		const myChart = new Chart(ctx, config)

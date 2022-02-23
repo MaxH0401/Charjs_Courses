@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Step Line Chart</title>
+	<title>Mixed Chart Types</title>
 </head>
 
 <body>
@@ -17,42 +17,57 @@
 		const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
 
 		const data = {
-			labels: labels,
+			labels: [
+				'January',
+				'February',
+				'March',
+				'April'
+			],
 			datasets: [{
-				label: 'My First Dataset',
-				data: [65, 59, 80, 81, 56, 55],
-				fill: false,
-				borderColor: 'rgb(75, 192, 192)',
+				type: 'bar',
+				label: '雨量',
+				data: [10, 20, 30, 40],
+				backgroundColor: 'rgb(100, 101, 220,0.3)',
 				yAxisID: 'y',
-			}, {
-				label: 'Second Dataset',
-				data: [11, 23, 63, 74, 82, 81],
+
+			},
+			{
+				type: 'line',
+				label: '溫度',
+				data: [23, 12, 31, 50],
 				fill: false,
-				borderColor: 'blue',
+				borderColor: 'rgb(176, 0, 0)',
 				yAxisID: 'y1',
 			}]
 		};
 
 		const config = {
-			type: 'line',
+			type: 'scatter',
 			data: data,
 			options: {
+				aspectRatio:2,
 				scales: {
 					y: {
-						type: 'linear',
-						display: true,
-						position: 'left',
+						display:true,
+						position:'left',
+						title: {
+							display: true,
+							text: 'mm'
+						}
 					},
 					y1: {
-						type: 'linear',
-						display: true,
-						position: 'right',
-						grid: {
-							drawOnChartArea: false,
+						display:true,
+						position:'right',
+						grid:{
+							drawOnChartArea:false,
 						},
-					},
+						title: {
+							display: true,
+							text: '度'
+						}
+					}
 				}
-			}
+			},
 		};
 
 		const myChart = new Chart(ctx, config)

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Radar Chart</title>
+</head>
+
+<body>
+	<canvas id="myChart" width="800" height="600"></canvas>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		var ctx = document.getElementById("myChart");
+		const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+		const data = {
+			labels: [
+				'Eating',
+				'Drinking',
+				'Sleeping',
+				'Designing',
+				'Coding',
+				'Cycling',
+				'Running'
+			],
+			datasets: [{
+				label: 'My First Dataset',
+				data: [65, 59, 90, 81, 56, 55, 40],
+				fill: true,
+				backgroundColor: 'rgba(255, 99, 132, 0.2)',
+				borderColor: 'rgb(255, 99, 132)',
+				pointBackgroundColor: 'rgb(255, 99, 132)',
+				pointBorderColor: '#fff',
+				pointHoverBackgroundColor: '#fff',
+				pointHoverBorderColor: 'rgb(255, 99, 132)'
+			}, {
+				label: 'My Second Dataset',
+				data: [28, 48, 40, 19, 96, 27, 100],
+				fill: true,
+				backgroundColor: 'rgba(54, 162, 235, 0.2)',
+				borderColor: 'rgb(54, 162, 235)',
+				pointBackgroundColor: 'rgb(54, 162, 235)',
+				pointBorderColor: '#fff',
+				pointHoverBackgroundColor: '#fff',
+				pointHoverBorderColor: 'rgb(54, 162, 235)'
+			}]
+		};
+
+		const config = {
+			type: 'radar',
+			data: data,
+			options: {
+				maintainAspectRatio: false,
+				elements: {
+					line: {
+						borderWidth: 3
+					}
+				},
+				scales: {
+					r: {
+						angleLines: {//輻射線
+							color: 'red'
+						},
+						grid: {
+							color: 'yellow'//平行線
+						},
+						pointLabels: {
+							color: 'green',//欄位名稱
+							font: {
+								size: 16
+							}
+						},
+						ticks: {//數值
+							color: 'blue'
+						},
+						min: 0,
+						max: 100,
+					}
+				},
+				aspectRatio: 2,
+			},
+
+		};
+
+		const myChart = new Chart(ctx, config)
+
+	</script>
+</body>
+
+</html>

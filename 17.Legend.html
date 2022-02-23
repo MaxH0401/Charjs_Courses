@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Step Line Chart</title>
+	<title>Legend</title>
 </head>
 
 <body>
@@ -18,41 +18,41 @@
 
 		const data = {
 			labels: labels,
-			datasets: [{
-				label: 'My First Dataset',
-				data: [65, 59, 80, 81, 56, 55],
-				fill: false,
-				borderColor: 'rgb(75, 192, 192)',
-				yAxisID: 'y',
-			}, {
-				label: 'Second Dataset',
-				data: [11, 23, 63, 74, 82, 81],
-				fill: false,
-				borderColor: 'blue',
-				yAxisID: 'y1',
-			}]
+			datasets: [
+				{
+					label: 'Default',
+					data: [11, 23, 63, 74, 82, 81],
+					borderColor: '#900',
+					pointStyle:'rect',
+					radius:10,
+					rotation:20, 
+					fill:true, 
+					backgroundColor:'rgba(200,0,0,0.3)',
+					
+
+				}]
 		};
 
 		const config = {
 			type: 'line',
 			data: data,
 			options: {
-				scales: {
-					y: {
-						type: 'linear',
-						display: true,
-						position: 'left',
-					},
-					y1: {
-						type: 'linear',
-						display: true,
-						position: 'right',
-						grid: {
-							drawOnChartArea: false,
+				plugins:{
+					legend:{
+						display:true, // 圖例顯示
+						position: 'bottom',// 圖例位置
+						align:'start',// 對齊
+						labels:{
+							color:'rgb(0,150,0)'
+							// 顏色
 						},
-					},
+						title:{ // Legend標題
+							text:'Monthes',
+							display:true,
+						}
+					}
 				}
-			}
+			},
 		};
 
 		const myChart = new Chart(ctx, config)
