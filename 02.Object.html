@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+
+<body>
+    <canvas id="myChart" width="800" height="600"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById("myChart");
+
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [{ x: '2016-12-25', y: 20 }, { x: '2016-12-26', y: 10 }, { x: '2016-12-27', y: 30 }, { x: '2016-12-28', y: 100 },
+                    { x: '2016-12-29', y: 10 }],
+                    //key：value寫在一起的方式
+                    backgroundColor: [
+                        'rgba(255, 50, 50, 0.8)']
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

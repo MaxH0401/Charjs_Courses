@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacked-Bar-Chart</title>
+</head>
+
+<body>
+    <canvas id="myChart" width="800" height="600"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById("myChart");
+        const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'First Dataset',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 0.5)',
+                ]
+            }, {
+                label: 'Second Dataset',
+                data: [20, 30, 50, 10, 20, 60, 20],
+                backgroundColor: [
+                    'rgba(0, 0, 0, 0.5)',
+                ]
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,//宣告data資訊
+            options: {
+                indexAxis: 'x',
+                //圖表方向
+                // maintainAspectRatio: false,
+                scales: {
+                    x: {
+                    	stacked: true
+                	},
+                	y: {
+                    	stacked: true
+                	}
+                }
+            },
+        };
+
+        const myChart = new Chart(ctx, config)
+        //直接使用config
+
+
+    </script>
+</body>
+
+</html>
